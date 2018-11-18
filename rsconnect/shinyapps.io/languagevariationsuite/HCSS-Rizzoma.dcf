@@ -1,0 +1,13 @@
+name: HCSS-Rizzoma
+title: HCSS-Rizzoma
+username:
+account: languagevariationsuite
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 251716
+bundleId: 1707673
+url: https://languagevariationsuite.shinyapps.io/HCSS-Rizzoma/
+when: 1542576885.59349
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|collection181118.rds
