@@ -1,5 +1,6 @@
 ### Export CSV file (no text, no notes)
 ### Load csv
+#install.packages("readr", "qdapRegex", "tm", "stringr", "stringi", "qdap", "qdapRegex", "tibble", "mallet", "dplyr", "tidytext")
 library(readr)
 library(qdapRegex)
 library(tm)
@@ -16,6 +17,11 @@ mypath <- file.choose()
 
 mydata <- read_csv(mypath)  
 shortdata <- mydata[,c("Key","Publication Year","Author","Title","Abstract Note","File Attachments")]
+
+#filter out the records without attachments
+shortdata <- shortdata[!(is.na(shortdata$`File Attachments`) | shortdata$`File Attachments`==" "), ]
+#coerce all characters into ASCII
+shortdata <- as.data.frame(apply(shortdata, c(1, 2), stri_trans_general, "Latin-ASCII"), stringsAsFactors=FALSE)
 
 ## loading text
 #texts=vector()
