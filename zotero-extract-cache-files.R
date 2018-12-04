@@ -33,7 +33,7 @@ for (i in 1:nrow(shortdata)) {
   dotpath = strsplit(path, "/") # REPLACE by \ for PC - Let's hope there is not title with this symbol
   paths = unlist(dotpath)[length(unlist(dotpath))]
   
-  uris.name = gsub(paths,".zotero-ft-cache", path)  # replace pdf file name by cache file
+  uris.name = gsub(paths,".zotero-ft-cache", path, perl = FALSE, fixed = TRUE)  # replace pdf file name by cache file
   if (file.exists(uris.name)) {
     text.scan <- scan(uris.name, what="character", sep="\n",blank.lines.skip = FALSE)  
     data=enc2utf8(text.scan)
